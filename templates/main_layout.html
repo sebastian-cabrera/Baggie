@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--HEAD///////////////////////////////////////////////////////////////////-->
+  <head>
+    <link rel="stylesheet" type="text/css" href="theme.css"><!--CSS IMPORT-->
+    <script src="https://kit.fontawesome.com/526982f0d2.js" crossorigin="anonymous"></script><!--FONTAWESOME IMPORT-->
+    <title>{% block titulo %}{% endblock %}</title><!--Titulo de la pagina-->
+  </head>
+<!--BODY///////////////////////////////////////////////////////////////////-->
+  <body>
+<!--BARMENU////////////////////////////////////////////////////////////////-->
+    <div class="bar">
+      <span class="logo">BAGGIE</span>
+      <span class="user">
+      {{ Usuario.nombre }}
+      </span>
+      <img src="John-Doe.jpg" class="profile_picture">
+    </div>
+<!--BODY CONTAINER/////////////////////////////////////////////////////////-->
+    <div class="container">
+<!--SIDEPANEL(PROFILE)/////////////////////////////////////////////////////-->
+      <div class="sidepanel">
+        <ul class="menu"><!--Menu-->
+          <li class="menu_item"><a>Gestión de empaques</a></li>
+          <li class="menu_item"><a>Gestión de productos</a></li>
+          <li class="menu_item"><a>Gestión de usuarios</a></li>
+          <li class="menu_item"><a>Reporte de incidencias</a></li>
+          <li class="menu_item"><a>Control de operaciones</a></li>
+          <li class="menu_item"><a>Lector QR</a></li>
+          <li class="menu_item"><a>Configuración</a></li>
+          <li class="menu_item"><a>Cerrar cesión</a></li>
+        </ul>
+      </div>
+<!--BODYPANEL//////////////////////////////////////////////////////////////-->
+      <div class="bodypanel"><!--Contenido del body-->
+        {% block body %}{% endblock %}
+      </div><!--Fin del contenido del body-->
+  </body>
+<!--END////////////////////////////////////////////////////////////////////-->
+  </html>

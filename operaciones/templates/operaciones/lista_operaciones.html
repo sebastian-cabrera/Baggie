@@ -1,0 +1,19 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Productos{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de Productos</h1>
+    {% if productos %}
+    <ul>
+      {% for producto in productos %}
+      <li>
+        <span>{{ producto.nombre }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No hay productos registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}

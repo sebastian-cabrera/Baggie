@@ -1,0 +1,23 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Usuarios{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de Usuarios</h1>
+    {% if usuarios %}
+    <ul>
+      {% for usuario in usuarios %}
+      <li>
+        <span>{{ usuario.nombre }}</span>
+        <span>{{ usuario.email }}</span>
+        <span>{{ usuario.cedula }}</span>
+        <span>{{ usuario.rol }}</span>
+        <span>{{ usuario.actividad_reciente }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No hay usuarios registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}
