@@ -1,0 +1,18 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Productos{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Gestión de incidencias</h2>
+        <form action="/incidencias/form_incidencias/" method="POST" name="gestion_incidencias" class="card_body">
+          <input type="number" name="id" placeholder="Id" disabled><br>
+          <input type="text" name="descripcion" placeholder="Descripcion"><br>
+          <input type="number" name="empaque" placeholder="Empaque"><br>
+          <input type="number" name="producto" placeholder="Producto"><br>
+          <input type="number" name="usuario" placeholder="Usuario"><br>
+          <input type="submit" value="Send" id="send"><br>
+        </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

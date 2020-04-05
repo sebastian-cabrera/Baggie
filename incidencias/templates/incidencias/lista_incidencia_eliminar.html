@@ -1,0 +1,22 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de incidencias{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de incidencias</h1>
+    {% if incidencias %}
+      {% for incidencia in incidencias %}
+        <form action="del/" method="POST" name="gestion_incidencias" class="card_body">
+          <input type="number" name="id" placeholder="Id" value="{{ incidencia.id }}">
+          <input type="text" name="descripcion" placeholder="Descripcion" value="{{ incidencia.Descripcion }}">
+          <input type="number" name="empaque" placeholder="Empaque" value="{{ incidencia.Empaque }}">
+          <input type="number" name="producto" placeholder="Producto" value="{{ incidencia.Producto }}">
+          <input type="number" name="usuario" placeholder="Usuario" value="{{ incidencia.Usuario }}">
+          <input type="submit" value="Eliminar" id="send"><br>
+        </form>
+      {% endfor %}
+    {% else %}
+      <p>No hay resultados.</p>
+    {% endif %}
+</div>
+{% endblock %}

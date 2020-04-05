@@ -1,0 +1,15 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Usuarios{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Empaque actualizado/eliminado:</h1>
+    {% if incidencias %}
+      {% for dato in incidencias %}
+        {{ dato }} -
+      {% endfor %}
+    {% else %}
+      <p>No hay datos para mostrar.</p>
+    {% endif %}
+</div>
+{% endblock %}
