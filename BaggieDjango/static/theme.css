@@ -1,0 +1,199 @@
+/******************************************************************************
+ PALETA DE COLORES
+*******************************************************************************
+ Negro: #524E4E
+ Azul primario: #216FE3
+ Azul secundario: #403EAA
+ Verde confirmación: #5A8637
+ Amarillo alerta: #A7B12F
+ Rojo problema: #B43636
+*******************************************************************************/
+body {
+  background-image: url("background.jpg");
+  background-color: #F5F5F5;
+  font-size: 1vw;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/******************************************************************************/
+.bar{
+background-color: #216FE3;
+height: 8vh;
+width: 100%;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+position:fixed;
+}
+.logo{
+    margin: 0 0 0 6vh;
+    position: relative;
+    float: left;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color:white;
+    font-size: 2vw;;
+}
+.user{
+  margin: 0 0 0 73%;
+  float: left;
+  top: 50%;
+  position: relative;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:white;
+  font-size: 1vw;;
+}
+.profile_picture{
+  margin:0 0 0 2%;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  float: left;
+  border-radius: 50%;
+  height: 2vw;
+  width: 2vw;
+}
+.menu{
+  list-style-type:none;
+}
+.menu_item{
+cursor:pointer;
+color: #524E4E;
+border: 0;
+height: 6vh;
+}
+.menu_item:hover{
+  color: #216FE3;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 50%;
+  right: auto;
+  left: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.cvname{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.cvtitle{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
+}
+.container{
+  display: flex;
+  flex-direction:row;
+}
+.sidepanel{
+  margin-top: 8vh;
+  display: flex;
+  background-color: white;
+  height: 92vh;
+  width: 20%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  order:0;
+  flex-direction:column;
+  position:fixed;
+}
+.bodypanel{
+  margin-top: 8vh;
+  margin-left: 20%;
+  display: grid;
+  height: 92vh;
+  width: 80%;
+  order:1;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "area1 area1"
+    "area2 area3"
+    "area4 area4"
+    "area5 area5"
+    "area6 area6";
+}
+#carta1{
+  grid-area:area1;
+}
+#carta2{
+  grid-area:area2;
+}
+#carta3{
+  grid-area:area3;
+}
+#carta4{
+  grid-area:area4;
+}
+#carta5{
+  grid-area:area5;
+}
+#carta6{
+  grid-area:area6;
+}
+.card{
+  margin:10px;
+  background-color: white;
+  height: auto;
+  width: auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card_title{
+  text-align: center;
+  height: auto;
+  width: 100%;
+}
+.card_body{
+  width: 96%;
+  height: auto;
+  text-align: justify;
+  margin: 2%;
+}
+.bar_back{
+  margin-left: auto;
+  margin-right: auto;
+	height: 1rem;
+	width: 80%;
+	background-color:#C4C4C4;
+}
+.bar_top{
+	height: 100%;
+	width: 70%;
+	background-color:#0073B1;
+}
+
+/*********** Form CSS ***********/
+input, textarea {
+  font-weight: 300;
+  width: 100%;
+  margin: 8px 0;
+  text-indent: 1em;
+  padding: 10px 0;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+select {
+  font-weight: 300;
+  width: 20%;
+  margin: 8px 0;
+  text-indent: 1em;
+  padding: 10px 0;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+input[type="submit"] {
+  background-color: #216FE3;
+  color: white;
+}
+input[type="submit"]:hover {
+  background-color: #403EAA;
+  color: white;
+}

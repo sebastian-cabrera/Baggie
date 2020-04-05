@@ -1,0 +1,315 @@
+/*INICIO*/
+:root{
+/*******************************************************************************
+VARIABLES***********************************************************************
+********************************************************************************
+FUENTES
+*******************************************************************************/
+/*Estas fuentes son importadas en el template desde google fonts*/
+--P-Font:'Oswald', sans-serif;/*var(--P-Font);*/
+--S-Font:'EB Garamond', serif;/*var(--S-Font);*/
+/******************************************************************************
+ PALETA DE COLORES
+******************************************************************************/
+ --P-Negro: #524E4E;/*var(--P-Negro);*/
+ --P-Azul: #216FE3;/*var(--P-Azul);*/
+ --S-Azul: #403EAA;/*var(--S-Azul);*/
+ --P-Verde: #5A8637;/*var(--P-Verde);*/
+ --P-Amarillo: #A7B12F;/*var(--P-Amarillo);*/
+ --P-Rojo: #B43636;/*var(--P-Rojo);*/
+ --S-Rojo: #8A4444;/*var(--S-Rojo);*/
+}
+/*Alterar los valor que estan sobre este comentario alterara todo el diseño*/
+/*******************************************************************************
+*******************************************************************************/
+body {
+  background-color: #F5F5F5;
+  font-size: 1vw;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/*******************************************************************************
+SCROLLBAR**********************************************************************/
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+::-webkit-scrollbar-track{
+  background-color: transparent;
+  border-top:8vh solid var(--P-Azul);
+  background-clip: padding-box;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  border-top:8vh solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 0;
+  background-color: var(--P-Negro);;
+}
+/*******************************************************************************
+BARRA SUPERIOR*****************************************************************/
+.bar{
+  background-color: var(--P-Azul);
+  height: 8vh;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position:fixed;
+}
+.logo{
+  font-family: var(--P-Font);
+  margin: 0 0 0 6vh;
+  position: relative;
+  float: left;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:white;
+  font-size: 2vw;;
+}
+.user{
+  font-family: var(--S-Font);
+  margin: 0 0 0 80%;
+  float: left;
+  top: 50%;
+  position: relative;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:white;
+  font-size: 1vw;;
+}
+.profile_picture{
+  margin:0 0 0 2%;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  float: left;
+  border-radius: 50%;
+  height: 2vw;
+  width: 2vw;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 50%;
+  right: auto;
+  left: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+/*******************************************************************************
+ESTRUCTURA*********************************************************************/
+.container{ /*Contenedor principal*/
+  display: flex;
+  flex-direction:row;
+}
+/*******************************************************************************
+NAVBAR*************************************************************************/
+.navbar{
+  margin-top: 8vh;
+  display: flex;
+  background-color: white;
+  height: 92vh;
+  width: 20%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  order:0;
+  flex-direction:column;
+  position:fixed;
+}
+.menu{
+  font-family: var(--P-Font);
+  list-style-type:none;
+}
+.menu_item{
+cursor:pointer;
+color: var(--P-Negro);;
+border: 0;
+height: 6vh;
+}
+.menu_item:hover{
+  color: var(--P-Azul);
+}
+/*******************************************************************************
+CONTENIDO**********************************************************************/
+.bodypanel{
+  margin-top: 8vh;
+  margin-left: 20%;
+  display: grid;
+  height: 92vh;
+  width: 80%;
+  order:1;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "area1 area1"
+    "area2 area3"
+    "area4 area4"
+    "area5 area5"
+    "area6 area6";
+}
+#carta1{
+  grid-area:area1;
+}
+#carta2{
+  grid-area:area2;
+}
+#carta3{
+  grid-area:area3;
+}
+#carta4{
+  grid-area:area4;
+}
+#carta5{
+  grid-area:area5;
+}
+#carta6{
+  grid-area:area6;
+}
+.card{
+  margin:10px;
+  background-color: white;
+  height: auto;
+  width: auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card_title{
+  font-family: var(--P-Azul);
+  text-align: center;
+  height: auto;
+  width: 100%;
+}
+.card_body{
+  font-family: var(--S-Font);
+  width: 96%;
+  height: auto;
+  text-align: justify;
+  margin: 2%;
+}
+/*******************************************************************************
+FORMULARIOS********************************************************************/
+input, textarea {
+  text-indent: 1rem;
+  font-family: var(--S-Font);
+  width: 100%;
+  display:block;
+  border:none;
+  border-bottom:1px solid lightgray;
+}
+select {
+  padding: 0;
+  border:none;
+  border-bottom:1px solid lightgray;
+  border-radius: 0 !important;
+}
+
+checkbox {
+  font-family: var(--S-Font);
+  font-weight: 300;
+  margin: 8px 0;
+  text-indent: 1em;
+  padding: 10px 0;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+input[type="submit"] {
+  background-color: var(--P-Azul);
+  color: white;
+}
+input[type="submit"]:hover {
+  background-color: var(--S-Azul);
+  color: white;
+}
+/*******************************************************************************
+BOTONES************************************************************************/
+.button {
+  font-family: var(--P-Font);
+  float:right;
+  background-color: var(--P-Azul);
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  margin-bottom: 10px;
+}
+.button_red {
+  font-family: var(--P-Font);
+  float:right;
+  background-color: var(--P-Rojo);
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  margin-bottom: 10px;
+}
+.red:hover {
+  background-color: var(--S-Rojo);
+}
+.button:hover {
+  background-color: var(--S-Azul);
+}
+.button_icon {
+  background: transparent;
+  border: none !important;
+  color: var(--P-Negro);
+}
+.button_icon:hover {
+  cursor:pointer;
+  color: var(--P-Azul);
+}
+/*******************************************************************************
+SEARCHER***********************************************************************/
+.searcher {
+  border: solid 1px var(--P-Azul);
+  padding: 10px;
+  text-indent: 1em;
+  font-family: var(--S-Font);
+  width: 50% !important;
+  display: block;
+  float: left;
+}
+.button_search {
+  padding: 10px;
+  background: var(--P-Azul);
+  border: solid 2px var(--P-Azul);
+  border-radius: 0 10px 10px 0;
+  color: white;
+  float:left;
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+.button_search:hover {
+  cursor:pointer;
+  background: var(--S-Azul);
+  border: solid 2px var(--S-Azul);
+  color: white;
+}
+/*******************************************************************************
+TABLAS*************************************************************************/
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  font-family: var(--S-Font);
+  border: 1px solid white;
+  background-color: #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td{
+  font-family: var(--S-Font);
+  border-bottom: 1px solid white;
+  text-align: left;
+  padding: 8px 1px 1px 1px;
+  margin-bottom: 10px;
+}
+/*******************************************************************************/
+/*FIN*/
