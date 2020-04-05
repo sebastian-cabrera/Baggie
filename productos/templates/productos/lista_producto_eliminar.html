@@ -1,0 +1,39 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de productos{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de productos</h1>
+    {% if productos %}
+      {% for producto in productos %}
+      <form action="del/" method="POST" name="gestion_productos" class="card_body">
+      <input type="number" name="id" placeholder="Id" value="{{ producto.id }}"><br>
+      <input type="text" name="nombre" placeholder="Nombre"  value="{{ producto.Nombre }}"><br>
+      <label for="variedad">Variedad</label>
+      <select name="variedad" id="variedad">
+        <option value="{{ producto.Variedad }}">{{ producto.Variedad }} (actual)</option>
+        <option value="Guri">Guri</option>
+        <option value="Merin">Merin</option>
+        <option value="Olimar">Olimar</option>
+        <option value="Tacuari">Tacuari</option>
+      </select>
+    <label for="procedencia">Procedencia</label>
+      <select name="procedencia" id="procedencia">
+        <option value="{{ producto.Procedencia }}">{{ producto.Procedencia }} (actual)</option>
+        <option value="Querencia">La Querencia</option>
+        <option value="StaTeresa">Sta Teresa</option>
+      </select>
+    <label for="zafra">Zafra</label>
+      <select name="zafra" id="zafra">
+        <option value="{{ producto.Zafra }}">{{ producto.Zafra }} (actual)</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+      </select>
+      <input type="submit" value="Borrar" id="send">
+      </form>
+      {% endfor %}
+    {% else %}
+      <p>No hay resultados.</p>
+    {% endif %}
+</div>
+{% endblock %}
