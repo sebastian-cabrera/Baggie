@@ -58,10 +58,10 @@ def gestionar_empaques(request):
             return render (request, 'empaques/lista_empaque_modif.html', {'empaques': empaques})
 
         elif accion == 'Borrar':
-            obj = Empaque.objects.get(id=prod_id)
+            obj = Empaque.objects.get(id=pak_id)
             obj.delete()
 
-            return render (request, 'empaques/lista_empaque_modif.html', {'empaques': empaque})
+            return render (request, 'empaques/lista_empaque_modif.html', {'empaques': empaques})
 
         else:
             return render (request, 'empaques/lista_empaque_modif.html')

@@ -1,0 +1,49 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de empaques{% endblock %}
+{% block body %}
+<div class="card" id="carta1">
+<h1 class="card_title">Gestión de Empaques</h1>
+<div class="card_body">
+  <span><form action="/empaques/find/" method="POST" name="busqueda_empaques">
+  <input type="text" name="busqueda" placeholder="Buscar" class="searcher">
+  <button type="submit" value="Send" id="send" class="button_search"><i class="fas fa-search"></i></button>
+  </form></span>
+  <a class="button" href=/empaques/add/>Nuevo empaque</a><br>
+    {% if empaques %}
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Tipo</th>
+        <th>Proveedor</th>
+        <th>Modelo</th>
+        <th>Dimensiones</th>
+        <th>Peso maximo</th>
+        <th>Cantidad de usos</th>
+        <th>Acciones</th>
+      </tr>
+    {% for empaque in empaques %}
+    <tr>
+      <form action="/empaques/modify/" method="POST" name="gestion_empaques">
+        <td><input type="number" name="id" placeholder="Id" value="{{ empaque.id }}" readonly></td>
+        <td><input type="text" name="tipo" placeholder="Tipo" value="{{ empaque.Tipo }}"></td>
+        <td><input type="text" name="proveedor" placeholder="Proveedor" value="{{ empaque.Proveedor }}"></td>
+        <td><input type="text" name="modelo" placeholder="Modelo" value="{{ empaque.Modelo }}"></td>
+        <td><input type="text" name="dimensiones" placeholder="Dimensiones" value="{{ empaque.Dimensiones }}"></td>
+        <td><input type="number" name="peso_max" placeholder="Peso maximo" value="{{ empaque.Peso_Max }}"></td>
+        <td><input type="number" name="cantidad_usos" placeholder="Cant. de usos" value="{{ empaque.Cantidad_Usos }}"></td>
+        <td><button type="submit" name="accion" value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
+            <button type="submit" name="accion" value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
+        </td>
+      </form>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <table>
+      <tr>
+        <td>No hay empaques registrados!</td>
+      </tr>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

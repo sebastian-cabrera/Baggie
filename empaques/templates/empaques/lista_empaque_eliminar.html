@@ -1,0 +1,24 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de empaques{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de empaques</h1>
+    {% if empaques %}
+      {% for empaque in empaques %}
+      <form action="del/" method="POST" name="gestion_empaques" class="card_body">
+        <input type="number" name="id" placeholder="Id" value="{{ empaque.id }}">
+        <input type="text" name="tipo" placeholder="Tipo" value="{{ empaque.Tipo }}">
+        <input type="text" name="proveedor" placeholder="Proveedor" value="{{ empaque.Proveedor }}">
+        <input type="text" name="modelo" placeholder="Modelo" value="{{ empaque.Modelo }}"><br>
+        <input type="text" name="dimensiones" placeholder="Dimensiones" value="{{ empaque.Dimensiones }}">
+        <input type="number" name="peso_max" placeholder="Peso maximo" value="{{ empaque.Peso_Max}}">
+        <input type="number" name="cantidad_usos" placeholder="Cant. de usos" value="{{ empaque.Cantidad_Usos}}">
+        <input type="submit" value="Eliminar" id="send"><br>
+      </form>
+      {% endfor %}
+    {% else %}
+      <p>No hay resultados.</p>
+    {% endif %}
+</div>
+{% endblock %}

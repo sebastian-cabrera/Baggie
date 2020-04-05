@@ -1,0 +1,14 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de empaques{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Eliminar empaque</h2>
+      <form action="fee/" method="POST" name="busqueda_empaques" class="card_body">
+      <input type="text" name="busqueda" placeholder="Cadena a buscar"><br>
+      <input type="submit" value="Send" id="send"><br>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de empaques{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Gestión de empaques</h2>
+      <form action="/empaques/form_empaques/" method="POST" name="gestion_empaques" class="card_body">
+      <input type="number" name="id" placeholder="Id" disabled><br>
+      <input type="text" name="tipo" placeholder="Tipo"><br>
+      <input type="text" name="proveedor" placeholder="Proveedor"><br>
+      <input type="text" name="modelo" placeholder="Modelo"><br>
+      <input type="text" name="dimensiones" placeholder="Dimensiones"><br>
+      <input type="number" name="peso_max" placeholder="Peso maximo"><br>
+      <input type="number" name="cantidad_usos" placeholder="Cant. de usos"><br>
+      <input type="submit" value="Guardar" id="send"><br>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}
