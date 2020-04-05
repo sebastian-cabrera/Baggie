@@ -1,0 +1,18 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Operaciones{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Gestión de operaciones</h2>
+        <form action="/operaciones/form_operaciones/" method="POST" name="gestion_operaciones" class="card_body">
+          <input type="number" name="id" placeholder="Id" disabled><br>
+          <input type="text" name="descripcion" name="descripcion" placeholder="Descripcion"><br>
+          <input type="number" name="id_empaque" placeholder="Codigo de empaque"><br>
+          <input type="number" name="id_producto" placeholder="Codigo de producto"><br>
+          <input type="number" name="id_usuario" placeholder="Codigo de usuario"><br>
+          <input type="submit" value="Guardar" id="send"><br>
+        </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

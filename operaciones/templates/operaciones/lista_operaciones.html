@@ -1,19 +1,48 @@
 {% extends "main_layout.html" %}
 
-{% block titulo %}Gestión de Productos{% endblock %}
+{% block titulo %}Gestión de Operaciones{% endblock %}
 {% block body %}
-<div class="carta">
-<h1>Gestión de Productos</h1>
-    {% if productos %}
-    <ul>
-      {% for producto in productos %}
-      <li>
-        <span>{{ producto.nombre }}</span>
-      </li>
+<div class="card" id="carta1">
+<h1 class="card_title">Gestión de Operaciones</h1>
+<div class="card_body">
+  <span><form action="/operaciones/find/" method="POST" name="busqueda_empaques">
+  <input type="text" name="busqueda" placeholder="Buscar" class="searcher">
+  <button type="submit" value="Send" id="send" class="button_search"><i class="fas fa-search"></i></button>
+  </form></span>
+  <a class="button" href=/operaciones/add/>Nueva Operacion</a><br>
+    {% if operaciones %}
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Codigo de empaque</th>
+        <th>Codigo de producto</th>
+        <th>Codigo de usuario</th>
+        <th>Acciones</th>
+      </tr>
+      {% for Operacion in operaciones %}
+      <tr>
+        <form action="modify/" method="POST" name="gestion_operaciones" class="card_body">
+          <td><input type="number" name="id" placeholder="Id" value="{{ Operacion.id }}" readonly></td>
+          <td><input type="text" name="descripcion" name="descripcion" placeholder="Descripcion" value="{{ Operacion.Descripcion }}"></td>
+          <td><input type="text" name="id_empaque" placeholder="Codigo de empaque" value="{{ Operacion.ID_Empaque }}"></td>
+          <td><input type="text" name="id_producto" placeholder="Codigo de producto" value="{{ Operacion.ID_Producto }}"></td>
+          <td><input type="text" name="id_usuario" placeholder="Codigo de usuario" value="{{ Operacion.ID_Usuario }}"></td>
+          <td><button type="submit" name="accion" value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
+              <button type="submit" name="accion" value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
+          </td>
+        </form>
+      </tr>
       {% endfor %}
-    </ul>
     {% else %}
-      <p>No hay productos registrados.</p>
+    <table>
+      <tr>
+        <!--button class="button"  onclick="alertaOpen()">alerta</button-->
+        <!--button class="button" onclick="errorOpen()">error</button-->
+        <button class="button"  onclick="exitoOpen()">exito</button>
+        <td>No hay operaciones registradas!</td>
+      </tr>
+    </table>
     {% endif %}
 </div>
 {% endblock %}
