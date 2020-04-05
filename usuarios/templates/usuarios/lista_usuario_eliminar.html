@@ -1,0 +1,28 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de productos{% endblock %}
+{% block body %}
+<div class="carta">
+<h1>Gestión de productos</h1>
+    {% if usuarios %}
+      {% for usuario in usuarios %}
+        <form action="del/" method="POST" name="gestion_usuarios" class="card_body">
+          <input type="number" name="id" placeholder="Id" value="{{ usuario.id }}">
+          <input type="text" name="nombre" placeholder="Nombre" value="{{ usuario.nombre }}">
+          <input type="email" name="email" placeholder="Email" value="{{ usuario.email }}">
+          <input type="number" name="cedula" placeholder="Cedula" value="{{ usuario.cedula }}"><br>
+          <label for="rol">Rol de usuario</label>
+            <select name="rol" id="rol">
+              <option value="{{ usuario.rol }}">{{ usuario.rol }} (actual)</option>
+              <option value=1>Administrador</option>
+              <option value=2>Usuario</option>
+              <option value=3>Operador</option>
+            </select>
+          <input type="submit" value="Eliminar" id="send"><br>
+        </form>
+      {% endfor %}
+    {% else %}
+      <p>No hay resultados.</p>
+    {% endif %}
+</div>
+{% endblock %}

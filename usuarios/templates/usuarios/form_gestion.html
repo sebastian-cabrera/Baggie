@@ -1,0 +1,23 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Gestión de Usuarios{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Gestión de usuarios</h2>
+      <form action="/usuarios/form_usuarios/" method="POST" name="gestion_usuarios" class="card_body">
+      <input type="number" name="id" placeholder="Id" disabled><br>
+      <input type="text" name="nombre" placeholder="Nombre"><br>
+      <input type="email" name="email" placeholder="Email"><br>
+      <input type="number" name="cedula" placeholder="Cedula"><br>
+    <label for="rol">Rol de usuario</label>
+      <select name="rol" id="procedencia">
+        <option value=1>Administrador</option>
+        <option value=2>Usuario</option>
+        <option value=3>Operador</option>
+      </select>
+      <input type="submit" value="Send" id="send"><br>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}
