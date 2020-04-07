@@ -25,9 +25,9 @@
         <form action="modify/" method="POST" name="gestion_operaciones" class="card_body">
           <td><input type="number" name="id" placeholder="Id" value="{{ Operacion.id }}" readonly></td>
           <td><input type="text" name="descripcion" name="descripcion" placeholder="Descripcion" value="{{ Operacion.Descripcion }}"></td>
-          <td><input type="text" name="id_empaque" placeholder="Codigo de empaque" value="{{ Operacion.ID_Empaque }}"></td>
-          <td><input type="text" name="id_producto" placeholder="Codigo de producto" value="{{ Operacion.ID_Producto }}"></td>
-          <td><input type="text" name="id_usuario" placeholder="Codigo de usuario" value="{{ Operacion.ID_Usuario }}"></td>
+          <td><input type="text" name="id_empaque" placeholder="Codigo de empaque" value="{{ Operacion.ID_Empaque }}" readonly></td>
+          <td><input type="text" name="id_producto" placeholder="Codigo de producto" value="{{ Operacion.ID_Producto }}" readonly></td>
+          <td><input type="text" name="id_usuario" placeholder="Codigo de usuario" value="{{ Operacion.ID_Usuario }}" readonly></td>
           <td><button type="submit" name="accion" value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
               <button type="submit" name="accion" value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
           </td>
