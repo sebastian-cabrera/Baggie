@@ -35,6 +35,12 @@ def gestionar_empaques(request):
         cantidad_usos = request.POST.get('cantidad_usos')
         accion = request.POST.get('accion')
 
+        empaques = {
+            pak_id, tipo, proveedor,
+            modelo, dimensiones, peso_max,
+            cantidad_usos, accion
+        }
+
         if  accion == 'Modificar':
             obj = Empaque.objects.get(id=pak_id)
             obj.Tipo = tipo
@@ -44,25 +50,12 @@ def gestionar_empaques(request):
             obj.Peso_Max = peso_max
             obj.Cantidad_Usos = cantidad_usos
             obj.save()
-
-            empaques = {
-                obj.id,
-                obj.Tipo,
-                obj.Proveedor,
-                obj.Modelo,
-                obj.Dimensiones,
-                obj.Peso_Max,
-                obj.Cantidad_Usos
-            }
-
             return render (request, 'empaques/lista_empaque_modif.html', {'empaques': empaques})
 
         elif accion == 'Borrar':
             obj = Empaque.objects.get(id=pak_id)
             obj.delete()
-
             return render (request, 'empaques/lista_empaque_modif.html', {'empaques': empaques})
-
         else:
             return render (request, 'empaques/lista_empaque_modif.html')
 
