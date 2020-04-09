@@ -4,8 +4,8 @@
 {% block body %}
 <div class="carta">
 <h1>Producto actualizado/eliminado:</h1>
-    {% if producto %}
-      {% for dato in producto %}
+    {% if productos %}
+      {% for dato in productos %}
         {{ dato }} -
       {% endfor %}
     {% else %}
