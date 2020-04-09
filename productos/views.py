@@ -12,15 +12,8 @@ def productos(request):
 def alta_productos(request):
 #    productos = Producto.objects.all()
     return render (request, 'productos/form_gestion.html')
-"""
-def buscar_productos(request):
-#    productos = Producto.objects.all()
-    return render (request, 'productos/form_busqueda.html')
 
-def buscar_eliminar_productos(request):
-#    productos = Producto.objects.all()
-    return render (request, 'productos/form_busqueda_eliminar.html')
-"""
+
 @csrf_exempt
 def form_buscar_productos(request):
     if request.method == 'POST':
