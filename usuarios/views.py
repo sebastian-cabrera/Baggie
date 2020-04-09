@@ -16,10 +16,6 @@ def buscar_usuarios(request):
 #    productos = Producto.objects.all()
     return render (request, 'usuarios/form_busqueda.html')
 
-def buscar_eliminar_usuarios(request):
-#    productos = Producto.objects.all()
-    return render (request, 'usuarios/form_busqueda_eliminar.html')
-
 
 @csrf_exempt
 def form_usuarios(request):
