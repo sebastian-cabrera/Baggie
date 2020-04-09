@@ -9,7 +9,7 @@
   <input type="text" name="busqueda" placeholder="Buscar" class="searcher">
   <button type="submit" value="Send" id="send" class="button_search"><i class="fas fa-search"></i></button>
   </form></span>
-  <a class="button" href=/empaques/frm/>Nuevo usuario</a><br>
+  <a class="button" href=/usuarios/add/>Nuevo usuario</a><br>
     {% if usuarios %}
     <table>
       <tr>
@@ -33,8 +33,8 @@
               <option value=2>2 - Usuario</option>
               <option value=3>3 - Operador</option>
             </select></td>
-            <td><button type="submit" value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
-                <button type="submit" value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
+            <td><button type="submit" name='accion' value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
+                <button type="submit" name='accion' value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
             </td>
           </form>
         </tr>

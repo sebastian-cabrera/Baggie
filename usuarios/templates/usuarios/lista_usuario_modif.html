@@ -4,9 +4,9 @@
 {% block body %}
 <div class="carta">
 <h1>Usuario actualizado/eliminado:</h1>
-    {% if usuario %}
-      {% for dato in usuario %}
-        {{ dato }} - 
+    {% if usuarios %}
+      {% for dato in usuarios %}
+        {{ dato }} -
       {% endfor %}
     {% else %}
       <p>No hay datos para mostrar.</p>

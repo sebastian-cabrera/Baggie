@@ -73,7 +73,7 @@ def form_buscar_usuario_eliminar(request):
 
 
 @csrf_exempt
-def modificar_usuario(request):
+def gestionar_usuario(request):
     #if post request came
     if request.method == 'POST':
         #getting values from post
@@ -82,19 +82,31 @@ def modificar_usuario(request):
         email = request.POST.get('email')
         cedula = request.POST.get('cedula')
         rol = request.POST.get('rol')
+        accion = request.POST.get('accion')
 
-        obj = Usuario.objects.get(id=usr_id)
-        obj.nombre = nombre
-        obj.email = email
-        obj.cedula = cedula
-        obj.rol = rol
-        obj.save()
-
-        usuario = {
-            obj.nombre, obj.email, obj.cedula, obj.rol,
+        usuarios = {
+            usr_id, nombre, email, cedula, rol
         }
+        if accion == "Modificar":
+            obj = Usuario.objects.get(id=usr_id)
+            obj.nombre = nombre
+            obj.email = email
+            obj.cedula = cedula
+            obj.rol = rol
+            obj.save()
 
-        return render (request, 'usuarios/lista_usuario_modif.html', {'usuario': usuario })
+            return render (request, 'usuarios/lista_usuario_modif.html', {'usuarios': usuarios })
+
+        elif accion == "Borrar":
+
+            obj = Usuario.objects.get(id=usr_id)
+            obj.delete()
+            return render (request, 'usuarios/lista_usuario_modif.html', {'usuarios': usuarios })
+
+        else:
+
+            return render (request, 'usuarios/lista_usuarios.html')
+
     else:
         #if post request is not true
         #returing the form template
@@ -117,8 +129,7 @@ def eliminar_usuario(request):
             usr_id, nombre, email, cedula, rol,
         }
 
-        obj = Usuario.objects.get(id=usr_id)
-        obj.delete()
+
 
         return render (request, 'usuarios/lista_usuario_modif.html', {'usuario': usuario })
     else:
