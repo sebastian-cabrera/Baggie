@@ -9,11 +9,9 @@ def usuarios(request):
     return render (request, 'usuarios/lista_usuarios.html', {'usuarios': usr})
 
 def alta_usuarios(request):
-#    productos = Producto.objects.all()
     return render (request, 'usuarios/form_gestion.html')
 
 def buscar_usuarios(request):
-#    productos = Producto.objects.all()
     return render (request, 'usuarios/form_busqueda.html')
 
 
