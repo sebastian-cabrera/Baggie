@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
-from .models import Incidencia, Empaque, Producto, Usuario
+from .models import Incidencia, Empaque, Producto
+from django.contrib.auth.models import User
 
 def incidencias(request):
     inc = Incidencia.objects.all()

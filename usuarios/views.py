@@ -2,11 +2,15 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 from .models import Usuario
 
 def usuarios(request):
-    usr = Usuario.objects.all()
+    usr = User.objects.all()
     return render (request, 'usuarios/lista_usuarios.html', {'usuarios': usr})
+
+
+
 
 def alta_usuarios(request):
     return render (request, 'usuarios/form_gestion.html')

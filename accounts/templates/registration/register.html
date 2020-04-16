@@ -1,0 +1,19 @@
+{% extends "main_layout.html" %}
+
+{% block titulo %}Baggie - Home{% endblock %}
+{% block body %}
+    <div class="card" id="carta1">
+      <h2 class="card_title">Sistema de empaques / Crear cuenta</h2>
+      <table>
+        <tr>
+          <td>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button>Registrarse</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+{% endblock %}

@@ -2,7 +2,8 @@ from django.db import models
 
 from productos.models import Producto
 from empaques.models import Empaque
-from usuarios.models import Usuario
+from django.contrib.auth.models import User
+#from usuarios.models import Usuario
 
 #
 #   Modelo para definir Incidencias.
@@ -13,7 +14,7 @@ class Incidencia(models.Model):
     Descripcion = models.CharField(max_length=25)
     Empaque = models.ForeignKey(Empaque, on_delete=models.CASCADE)
     Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 #   Al consultar, nos devuelve el dato almacenado en el campo "Descripcion"
 

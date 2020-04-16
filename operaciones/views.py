@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
-from .models import Movimiento, Empaque, Usuario, Producto
+from .models import Movimiento, Empaque, Producto
+from django.contrib.auth.models import User
 
 
 def operaciones(request):

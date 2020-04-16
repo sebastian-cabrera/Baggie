@@ -19,9 +19,14 @@
     <div class="bar">
       <span class="logo">BAGGIE</span>
       <span class="user">
-      John Doe
+        {% if request.user.is_authenticated %}
+          {{ user.username }}
+        {% else %}
+          <a href="/accounts/login/">Login</a>
+        {% endif %}
       </span>
       <img src="{% static 'img/John-Doe.jpg' %}"  class="profile_picture">
+      <a href="#"></a>
     </div>
 <!--BODY CONTAINER/////////////////////////////////////////////////////////-->
     <div class="container">
@@ -34,10 +39,16 @@
           <li class="menu_item"><a href=/usuarios/>Gestión de usuarios</a></li>
           <li class="menu_item"><a href=/incidencias/>Reporte de incidencias</a></li>
           <li class="menu_item"><a href=/operaciones/>Control de operaciones</a></li>
+          {% if request.user.is_authenticated %}
+            <li class="menu_item"><a href=/accounts/logout/>Cerrar sesión</a></li>
+          {% else %}
+            <li class="menu_item"><a href=/accounts/login/>Iniciar sesión</a></li>
+          {% endif %}
         </ul>
       </div>
 <!--BODYPANEL//////////////////////////////////////////////////////////////-->
       <div class="bodypanel"><!--Contenido del body-->
+
         {% block body %}{% endblock %}
         <div>
         {% include "modales.html" %}

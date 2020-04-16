@@ -9,32 +9,27 @@
   <input type="text" name="busqueda" placeholder="Buscar" class="searcher">
   <button type="submit" value="Send" id="send" class="button_search"><i class="fas fa-search"></i></button>
   </form></span>
-  <a class="button" href=/usuarios/add/>Nuevo usuario</a><br>
+  <a class="button" href=/accounts/register/>Nuevo usuario</a><br>
     {% if usuarios %}
     <table>
       <tr>
-        <th>Id</th>
+        <th>Usuario</th>
         <th>Nombre</th>
+        <th>Apellido</th>
         <th>Email</th>
-        <th>Cedula</th>
-        <th>Rol</th>
+        <th>Ultimo acceso</th>
         <th>Acciones</th>
       </tr>
       {% for usuario in usuarios %}
       <tr>
         <form action="/usuarios/modify/" method="POST" name="modificar_usuario" class="card_body">
-          <td><input type="number" name="id" placeholder="Id" value="{{ usuario.id }}" readonly></td>
-          <td><input type="text" name="nombre" placeholder="Nombre" value="{{ usuario.nombre }}"></td>
-          <td><input type="email" name="email" placeholder="Email" value="{{ usuario.email }}"></td>
-          <td><input type="number" name="cedula" placeholder="Cedula" value="{{ usuario.cedula }}"></td>
-          <td><select name="rol" id="rol">
-              <option value={{ usuario.rol }}>Rol actual: {{ usuario.rol }} </option>
-              <option value=1>1 - Administrador</option>
-              <option value=2>2 - Usuario</option>
-              <option value=3>3 - Operador</option>
-            </select></td>
-            <td><button type="submit" name='accion' value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
-                <button type="submit" name='accion' value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
+          <td><input type="text" name="username" placeholder="Nombre de usuario" value="{{ usuario.username }}" readonly></td>
+          <td><input type="text" name="nombre" placeholder="Nombre" value="{{ usuario.first_name }}"></td>
+          <td><input type="text" name="apellido" value="{{ usuario.last_name }}"></td>
+          <td><input type="email" name="email" placeholder="Correo electrónico" value="{{ usuario.email }}"></td>
+          <td><input type="datetime" name="acceso" value="{{ usuario.last_login }}"></td>
+          <td><button type="submit" name='accion' value="Modificar" id="send" class="button_icon" title="Guardar"><i class="fas fa-save"></i></button>
+              <button type="submit" name='accion' value="Borrar" id="send" class="button_icon" title="Borrar"><a class="fas fa-trash"></a></button>
             </td>
           </form>
         </tr>
