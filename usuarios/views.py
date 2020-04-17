@@ -26,8 +26,8 @@ def form_usuarios(request):
         #getting values from post
         nombre = request.POST.get('nombre')
         email = request.POST.get('email')
-        cedula = request.POST.get('cedula')
-        rol = request.POST.get('rol')
+        apellido = request.POST.get('apellido')
+
 
         obj = Usuario()
         obj.nombre = nombre
@@ -44,11 +44,13 @@ def form_usuarios(request):
         template = loader.get_template('usuarios/form_gestion.html')
         return HttpResponse(template.render())
 
+
+
 @csrf_exempt
 def form_buscar_usuarios(request):
     if request.method == 'POST':
         busqueda = request.POST.get('busqueda')
-        usuarios = Usuario.objects.filter(nombre__contains=busqueda)
+        usuarios = User.objects.filter(username__contains=busqueda)
         return render (request, 'usuarios/lista_usuarios.html', {'usuarios': usuarios })
     else:
         #if post request is not true
@@ -62,29 +64,28 @@ def gestionar_usuario(request):
     #if post request came
     if request.method == 'POST':
         #getting values from post
-        usr_id = request.POST.get('id')
+        usuario = request.POST.get('usuario')
         nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
         email = request.POST.get('email')
-        cedula = request.POST.get('cedula')
-        rol = request.POST.get('rol')
         accion = request.POST.get('accion')
 
         usuarios = {
-            usr_id, nombre, email, cedula, rol
+            usuario, nombre, apellido, email
         }
+
         if accion == "Modificar":
-            obj = Usuario.objects.get(id=usr_id)
-            obj.nombre = nombre
+            obj = User.objects.get(username = usuario)
+            obj.first_name = nombre
+            obj.last_name = apellido
             obj.email = email
-            obj.cedula = cedula
-            obj.rol = rol
             obj.save()
 
             return render (request, 'usuarios/lista_usuario_modif.html', {'usuarios': usuarios })
 
         elif accion == "Borrar":
 
-            obj = Usuario.objects.get(id=usr_id)
+            obj = User.objects.get(username = usuario)
             obj.delete()
 
             return render (request, 'usuarios/lista_usuario_modif.html', {'usuarios': usuarios })
