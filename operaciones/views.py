@@ -5,15 +5,19 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Movimiento, Empaque, Producto
 from django.contrib.auth.models import User
 
-
+@login_required
 def operaciones(request):
     operaciones = Movimiento.objects.all()
     return render (request, 'operaciones/lista_operaciones.html', {'operaciones': operaciones})
 
+
+@login_required
 def alta_operaciones(request):
 #    productos = Producto.objects.all()
     return render (request, 'operaciones/form_gestion.html')
 
+
+@login_required
 @csrf_exempt
 def gestionar_operaciones(request):
     if request.method == 'POST':
@@ -62,7 +66,7 @@ def gestionar_operaciones(request):
 
 
 
-
+@login_required
 @csrf_exempt
 def form_buscar_operaciones(request):
     if request.method == 'POST':
@@ -95,6 +99,7 @@ def form_buscar_operaciones_eliminar(request):
 #
 #
 
+@login_required
 @csrf_exempt
 def form_operaciones(request):
     #if post request came

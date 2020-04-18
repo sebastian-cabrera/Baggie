@@ -5,10 +5,13 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Incidencia, Empaque, Producto
 from django.contrib.auth.models import User
 
+@login_required
 def incidencias(request):
     inc = Incidencia.objects.all()
     return render (request, 'incidencias/lista_incidencias.html', {'incidencias': inc})
 
+
+@login_required
 def alta_incidencias(request):
 #    inc = Incidencia.objects.all()
     return render (request, 'incidencias/form_gestion.html')
@@ -21,7 +24,7 @@ def alta_incidencias(request):
 #                   eliminar_incidencia(request):
 #
 ##############################################################################
-
+@login_required
 @csrf_exempt
 def gestionar_incidencias(request):
     #if post request came
@@ -73,6 +76,7 @@ def gestionar_incidencias(request):
 #
 ##############################################################################
 
+@login_required
 @csrf_exempt
 def form_buscar_incidencias(request):
     if request.method == 'POST':
@@ -106,6 +110,7 @@ def form_buscar_incidencias_eliminar(request):
         return HttpResponse(template.render())
 """
 
+@login_required
 @csrf_exempt
 def form_incidencias(request):
     #if post request came

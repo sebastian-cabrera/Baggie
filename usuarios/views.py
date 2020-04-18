@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from .models import Usuario
 
+@login_required
 def usuarios(request):
     usr = User.objects.all()
     return render (request, 'usuarios/lista_usuarios.html', {'usuarios': usr})
@@ -18,7 +19,7 @@ def alta_usuarios(request):
 def buscar_usuarios(request):
     return render (request, 'usuarios/form_busqueda.html')
 
-
+@login_required
 @csrf_exempt
 def form_usuarios(request):
     #if post request came
@@ -45,7 +46,7 @@ def form_usuarios(request):
         return HttpResponse(template.render())
 
 
-
+@login_required
 @csrf_exempt
 def form_buscar_usuarios(request):
     if request.method == 'POST':
@@ -58,7 +59,7 @@ def form_buscar_usuarios(request):
         template = loader.get_template('usuarios/lista_usuarios.html')
         return HttpResponse(template.render())
 
-
+@login_required
 @csrf_exempt
 def gestionar_usuario(request):
     #if post request came

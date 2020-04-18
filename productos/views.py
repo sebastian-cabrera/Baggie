@@ -4,16 +4,19 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from .models import Producto
 
-
+@login_required
 def productos(request):
     productos = Producto.objects.all()
     return render (request, 'productos/lista_productos.html', {'productos': productos})
 
+
+@login_required
 def alta_productos(request):
 #    productos = Producto.objects.all()
     return render (request, 'productos/form_gestion.html')
 
 
+@login_required
 @csrf_exempt
 def form_buscar_productos(request):
     if request.method == 'POST':
@@ -26,6 +29,8 @@ def form_buscar_productos(request):
         template = loader.get_template('usuarios/lista_usuarios.html')
         return HttpResponse(template.render())
 
+
+@login_required
 @csrf_exempt
 def form_productos(request):
     #if post request came
@@ -61,7 +66,7 @@ def form_productos(request):
 #
 #   Objetivo: Funcion para modificar y eliminar productos
 #
-
+@login_required
 @csrf_exempt
 def gestionar_producto(request):
     if request.method == 'POST':
