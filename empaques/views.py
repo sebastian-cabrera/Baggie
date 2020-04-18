@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from .models import Empaque
 
+@login_required
 def empaques(request):
     pak = Empaque.objects.all()
     return render (request, 'empaques/lista_empaques.html', {'empaques': pak})
