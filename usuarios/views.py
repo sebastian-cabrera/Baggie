@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Usuario
 
@@ -10,12 +11,11 @@ def usuarios(request):
     usr = User.objects.all()
     return render (request, 'usuarios/lista_usuarios.html', {'usuarios': usr})
 
-
-
-
+@login_required
 def alta_usuarios(request):
     return render (request, 'usuarios/form_gestion.html')
 
+@login_required
 def buscar_usuarios(request):
     return render (request, 'usuarios/form_busqueda.html')
 
